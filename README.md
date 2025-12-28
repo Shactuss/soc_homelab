@@ -10,8 +10,8 @@ Building a home Security Operations Center lab to learn threat detection, log an
 - Attack Platform: Kali Linux
 
 ## Progress
-- [ ] Install VirtualBox
-- [ ] Set up pfSense firewall
+- [x] Install VirtualBox
+- [x] Set up pfSense firewall
 - [ ] Install Wazuh SIEM
 - [ ] Add vulnerable target machines
 - [ ] Configure log forwarding
