@@ -13,9 +13,9 @@ Building a home Security Operations Center lab to learn threat detection, log an
 - [x] Install VirtualBox
 - [x] Set up pfSense firewall
 - [x] Install Wazuh SIEM
-- [ ] Add vulnerable target machines
-- [ ] Configure log forwarding
-- [ ] Create detection rules
+- [x] Add vulnerable target machines
+- [x] Configure log forwarding
+- [x] Create detection rules
 
 ## Network Diagram
 (Coming soon)
