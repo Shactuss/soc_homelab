@@ -1,0 +1,35 @@
+<!-- Local rules -->
+<!-- Custom detection rules for SOC Homelab -->
+<!-- Location: /var/ossec/etc/rules/local_rules.xml -->
+
+<group name="local,syslog,sshd,">
+
+  <!-- Rule 100002: Failed SSH login for root user -->
+  <!-- Triggers on failed authentication attempts targeting root -->
+  <!-- MITRE ATT&CK: T1110 (Brute Force) -->
+  <rule id="100002" level="10">
+    <if_sid>5716</if_sid>
+    <user>root</user>
+    <description>Failed SSH login attempt for root user</description>
+    <group>authentication_failed,root_attempt,</group>
+  </rule>
+
+  <!-- Rule 100003: SSH Brute Force Detection -->
+  <!-- Triggers when 5+ failed logins occur within 2 minutes -->
+  <!-- MITRE ATT&CK: T1110.001 (Password Guessing) -->
+  <rule id="100003" level="12" frequency="5" timeframe="120">
+    <if_matched_sid>5716</if_matched_sid>
+    <description>Possible SSH brute force attack (5 failures in 2 min)</description>
+    <group>authentication_failed,brute_force,</group>
+  </rule>
+
+  <!-- Rule 100004: New User Account Created -->
+  <!-- Triggers when a new local user account is created -->
+  <!-- MITRE ATT&CK: T1136.001 (Create Account: Local Account) -->
+  <rule id="100004" level="8">
+    <if_sid>5901</if_sid>
+    <description>New user account created on system</description>
+    <group>account_created,</group>
+  </rule>
+
+</group>
